@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private  RadioGroup rbRecomiendas;
     private CheckBox cbxNotificaciones;
     private RatingBar ratingBar;
+    private boolean disable = false;
+    private boolean disableRecomendation = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +35,8 @@ public class MainActivity extends AppCompatActivity {
 
         ratingBar.setEnabled(false); //desahabilitar widget en la interfaz al momento de inicar (ratingBar).
         btnEnviar.setEnabled(false); //desahabilitar widget en la interfaz al momento de iniciar (btnEviar).
-        rbRecomiendas.setEnabled(false);
-
+        //Desabilitar radio group
+        disableRadioGroup();
 
         rbUsas.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -50,4 +52,12 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    private void disableRadioGroup(){
+        findViewById(R.id.rbNoReco).setEnabled(disableRecomendation);
+        findViewById(R.id.rbSiReco).setEnabled(disableRecomendation);
+        findViewById(R.id.rbNo).setEnabled(disable);
+        findViewById(R.id.rbSi).setEnabled(disable);
+    }
+
+
 }
